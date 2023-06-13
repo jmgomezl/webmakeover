@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebMakeover</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>WebMakeover</h1>
+  
+    <div class="option">
+      <label for="zoomLevel">Zoom Level:</label>
+      <input type="range" id="zoomLevel" min="0" max="200" value="100">
+    </div>
+  
+    <div class="option">
+      <label for="fontSize">Font Size:</label>
+      <input type="range" id="fontSize" min="8" max="32" value="16">
+    </div>
+  
+    <div class="option">
+      <label for="spacing">Line Spacing:</label>
+      <input type="range" id="spacing" min="0" max="200" value="100">
+    </div>
+  
+    <hr>
+  
+    <div class="option">
+      <label for="backgroundColor">Background Color:</label><br>
+      <input type="color" id="backgroundColor">
+    </div>
+  
+    <div class="option">
+      <label for="fontColor">Text Color:</label><br> 
+      <input type="color" id="fontColor">
+    </div>
+  
+    <hr>
+  
+    <div class="container">
+      <button id="reset">Reset</button>
+    </div>
+  
+    <script src="popup.js"></script>
+  </div>
+</body>
+</html>
+
