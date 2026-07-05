@@ -1,48 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>WebMakeover</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>WebMakeover</h1>
-  
-    <div class="option">
-      <label for="zoomLevel">Zoom Level:</label>
-      <input type="range" id="zoomLevel" min="0" max="200" value="100">
+  <div class="app">
+    <header class="header">
+      <img class="logo" src="images/icon48.png" alt="">
+      <div class="titles">
+        <h1>WebMakeover</h1>
+        <p class="subtitle">Make this page easy to read</p>
+      </div>
+    </header>
+
+    <div id="unsupported" class="notice" hidden>
+      This page can't be customized (browser or store pages are protected).
     </div>
-  
-    <div class="option">
-      <label for="fontSize">Font Size:</label>
-      <input type="range" id="fontSize" min="8" max="32" value="16">
-    </div>
-  
-    <div class="option">
-      <label for="spacing">Line Spacing:</label>
-      <input type="range" id="spacing" min="0" max="200" value="100">
-    </div>
-  
-    <hr>
-  
-    <div class="option">
-      <label for="backgroundColor">Background Color:</label><br>
-      <input type="color" id="backgroundColor">
-    </div>
-  
-    <div class="option">
-      <label for="fontColor">Text Color:</label><br> 
-      <input type="color" id="fontColor">
-    </div>
-  
-    <hr>
-  
-    <div class="container">
-      <button id="reset">Reset</button>
-    </div>
-  
-    <script src="popup.js"></script>
+
+    <section class="presets">
+      <button class="preset" data-preset="reading" type="button">📖 Reading</button>
+      <button class="preset" data-preset="dark" type="button">🌙 Dark</button>
+      <button class="preset" data-preset="sepia" type="button">🍂 Sepia</button>
+      <button class="preset" data-preset="contrast" type="button">⚡ Contrast</button>
+    </section>
+
+    <section class="controls">
+      <div class="control">
+        <div class="control-head">
+          <label for="zoom">Zoom</label>
+          <output id="zoomOut">100%</output>
+        </div>
+        <input type="range" id="zoom" min="50" max="200" step="5" value="100">
+      </div>
+
+      <div class="control">
+        <div class="control-head">
+          <label for="fontScale">Text size</label>
+          <output id="fontScaleOut">100%</output>
+        </div>
+        <input type="range" id="fontScale" min="70" max="200" step="5" value="100">
+      </div>
+
+      <div class="control">
+        <div class="control-head">
+          <label for="spacing">Line spacing</label>
+          <output id="spacingOut">Normal</output>
+        </div>
+        <input type="range" id="spacing" min="100" max="300" step="10" value="100">
+      </div>
+    </section>
+
+    <section class="colors">
+      <div class="color">
+        <label for="bgColor">Background</label>
+        <div class="swatch">
+          <input type="color" id="bgColor" value="#ffffff">
+          <button class="clear" id="bgClear" type="button" title="Clear">✕</button>
+        </div>
+      </div>
+      <div class="color">
+        <label for="textColor">Text</label>
+        <div class="swatch">
+          <input type="color" id="textColor" value="#000000">
+          <button class="clear" id="textClear" type="button" title="Clear">✕</button>
+        </div>
+      </div>
+    </section>
+
+    <button class="reset" id="reset" type="button">Reset page</button>
   </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>
-
