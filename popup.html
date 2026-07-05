@@ -6,29 +6,40 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app">
-    <header class="header">
-      <img class="logo" src="images/icon48.png" alt="">
-      <div class="titles">
+  <main class="paper">
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="masthead">
+      <span class="seal">Aa</span>
+      <div class="wordmark">
         <h1>WebMakeover</h1>
-        <p class="subtitle">Make this page easy to read</p>
+        <p class="kicker">The reading studio</p>
       </div>
     </header>
 
     <div id="unsupported" class="notice" hidden>
-      This page can't be customized (browser or store pages are protected).
+      This page is protected by the browser and can't be restyled.
     </div>
 
-    <section class="presets">
-      <button class="preset" data-preset="reading" type="button">📖 Reading</button>
-      <button class="preset" data-preset="dark" type="button">🌙 Dark</button>
-      <button class="preset" data-preset="sepia" type="button">🍂 Sepia</button>
-      <button class="preset" data-preset="contrast" type="button">⚡ Contrast</button>
-    </section>
+    <!-- Live type specimen: the page's future, previewed -->
+    <figure class="specimen">
+      <div class="sheet" id="sheet">
+        <span class="dropcap">R</span>eading should feel effortless. Reshape the size,
+        spacing and color of any page until the words settle and the noise fades away.
+      </div>
+      <figcaption><span>Live preview</span></figcaption>
+    </figure>
+
+    <nav class="presets" aria-label="Presets">
+      <button class="stamp" data-preset="reading" type="button"><b>Reading</b><i>warm &amp; wide</i></button>
+      <button class="stamp" data-preset="dark" type="button"><b>Dark</b><i>low light</i></button>
+      <button class="stamp" data-preset="sepia" type="button"><b>Sepia</b><i>paperback</i></button>
+      <button class="stamp" data-preset="contrast" type="button"><b>Contrast</b><i>maximum</i></button>
+    </nav>
 
     <section class="controls">
       <div class="control">
-        <div class="control-head">
+        <div class="row">
           <label for="zoom">Zoom</label>
           <output id="zoomOut">100%</output>
         </div>
@@ -36,7 +47,7 @@
       </div>
 
       <div class="control">
-        <div class="control-head">
+        <div class="row">
           <label for="fontScale">Text size</label>
           <output id="fontScaleOut">100%</output>
         </div>
@@ -44,7 +55,7 @@
       </div>
 
       <div class="control">
-        <div class="control-head">
+        <div class="row">
           <label for="spacing">Line spacing</label>
           <output id="spacingOut">Normal</output>
         </div>
@@ -53,24 +64,26 @@
     </section>
 
     <section class="colors">
-      <div class="color">
+      <div class="swatch">
         <label for="bgColor">Background</label>
-        <div class="swatch">
+        <div class="pick">
           <input type="color" id="bgColor" value="#ffffff">
-          <button class="clear" id="bgClear" type="button" title="Clear">✕</button>
+          <button class="clear" id="bgClear" type="button" title="Clear">reset</button>
         </div>
       </div>
-      <div class="color">
-        <label for="textColor">Text</label>
-        <div class="swatch">
+      <div class="swatch">
+        <label for="textColor">Ink</label>
+        <div class="pick">
           <input type="color" id="textColor" value="#000000">
-          <button class="clear" id="textClear" type="button" title="Clear">✕</button>
+          <button class="clear" id="textClear" type="button" title="Clear">reset</button>
         </div>
       </div>
     </section>
 
-    <button class="reset" id="reset" type="button">Reset page</button>
-  </div>
+    <button class="restore" id="reset" type="button">
+      <span class="glyph">↺</span> Restore original page
+    </button>
+  </main>
 
   <script src="popup.js"></script>
 </body>

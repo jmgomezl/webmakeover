@@ -35,7 +35,8 @@ const el = {
   textClear: document.getElementById('textClear'),
   reset: document.getElementById('reset'),
   unsupported: document.getElementById('unsupported'),
-  presets: document.querySelectorAll('.preset')
+  sheet: document.getElementById('sheet'),
+  presets: document.querySelectorAll('.stamp')
 };
 
 // --- Init ---
@@ -119,14 +120,37 @@ function syncControls() {
   el.fontScaleOut.textContent = settings.fontScale + '%';
   el.spacingOut.textContent = spacingLabel(settings.spacing);
 
+  paintSlider(el.zoom);
+  paintSlider(el.fontScale);
+  paintSlider(el.spacing);
+
   el.bgColor.value = settings.bgColor || '#ffffff';
   el.textColor.value = settings.textColor || '#000000';
-  el.bgColor.style.opacity = settings.bgColor ? '1' : '0.4';
-  el.textColor.style.opacity = settings.textColor ? '1' : '0.4';
+  el.bgColor.style.opacity = settings.bgColor ? '1' : '0.45';
+  el.textColor.style.opacity = settings.textColor ? '1' : '0.45';
 
   el.presets.forEach(btn =>
     btn.classList.toggle('active', btn.dataset.preset === settings.preset)
   );
+
+  renderPreview();
+}
+
+// Paint the filled portion of a range input via a CSS variable.
+function paintSlider(input) {
+  const min = +input.min, max = +input.max, val = +input.value;
+  const pct = ((val - min) / (max - min)) * 100;
+  input.style.setProperty('--fill', pct + '%');
+}
+
+// Morph the live specimen to match the current settings.
+function renderPreview() {
+  if (!el.sheet) return;
+  const scale = (settings.fontScale / 100) * (settings.zoom / 100);
+  el.sheet.style.fontSize = (15 * scale).toFixed(1) + 'px';
+  el.sheet.style.lineHeight = (settings.spacing / 100).toFixed(2);
+  el.sheet.style.background = settings.bgColor || 'var(--sheet)';
+  el.sheet.style.color = settings.textColor || 'var(--ink)';
 }
 
 function spacingLabel(v) {
