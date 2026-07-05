@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="_common.css">
+<style>
+  .head{position:absolute;top:88px;left:0;right:0;text-align:center}
+  .head .eyebrow{margin-bottom:18px}
+  .head .display{font-size:60px}
+  .row{position:absolute;top:198px;left:0;right:0;display:flex;justify-content:center;gap:30px}
+  .card{display:flex;flex-direction:column;align-items:center;gap:16px}
+  .frame{width:196px;height:485px}          /* 344x850 * .57 */
+  .frame iframe{transform:scale(.57)}
+  .cap{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink)}
+  .cap span{display:block;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+</style></head>
+<body>
+  <div class="grain"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="head">
+    <div class="eyebrow">One tap changes everything</div>
+    <h1 class="display">One click. <em>Four</em> moods.</h1>
+  </div>
+  <div class="row">
+    <div class="card"><div class="frame"><iframe src="snap-reading.html" width="344" height="850" scrolling="no"></iframe></div><div class="cap">Reading<span>Warm &amp; wide</span></div></div>
+    <div class="card"><div class="frame"><iframe src="snap-dark.html" width="344" height="850" scrolling="no"></iframe></div><div class="cap">Dark<span>Low light</span></div></div>
+    <div class="card"><div class="frame"><iframe src="snap-sepia.html" width="344" height="850" scrolling="no"></iframe></div><div class="cap">Sepia<span>Paperback</span></div></div>
+    <div class="card"><div class="frame"><iframe src="snap-contrast.html" width="344" height="850" scrolling="no"></iframe></div><div class="cap">High Contrast<span>Maximum</span></div></div>
+  </div>
+</body></html>

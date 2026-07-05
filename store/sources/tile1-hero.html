@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="_common.css">
+<style>
+  .wrap{position:absolute;inset:0;display:flex;align-items:center}
+  .left{width:660px;padding:0 0 0 96px}
+  .eyebrow{margin-bottom:26px}
+  .display{font-size:82px;margin-bottom:28px}
+  .lede{font-size:25px;max-width:470px;margin-bottom:40px}
+  .pills{display:flex;flex-direction:column;gap:16px}
+  .stage{position:absolute;right:120px;top:50%;transform:translateY(-50%) rotate(-3deg)}
+  .frame iframe{transform:scale(.82)} /* 344x850 -> 282x697 */
+  .frame{width:282px;height:697px}
+  .tagline{position:absolute;left:96px;bottom:56px;font-size:16px;font-weight:700;letter-spacing:.06em;color:var(--ink-soft)}
+</style></head>
+<body>
+  <div class="grain"></div>
+  <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+  <div class="wrap">
+    <div class="left">
+      <div class="eyebrow">WebMakeover · The Reading Studio</div>
+      <h1 class="display">Read the web<br>on <em>your</em> terms.</h1>
+      <p class="lede">Reshape the size, spacing and color of any page until the words settle and the noise fades away.</p>
+      <div class="pills">
+        <span class="pill">Live preview before you touch the page</span>
+        <span class="pill">Four one-click reading presets</span>
+        <span class="pill">Your settings, remembered per site</span>
+      </div>
+    </div>
+  </div>
+  <div class="stage">
+    <div class="frame"><iframe src="snap-reading.html" width="344" height="850" scrolling="no"></iframe></div>
+  </div>
+  <div class="tagline">Free · No account · Nothing leaves your browser</div>
+</body></html>
