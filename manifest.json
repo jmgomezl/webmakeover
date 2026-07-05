@@ -1,7 +1,8 @@
 {
   "manifest_version": 3,
   "name": "WebMakeover",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Instantly make any web page easier to read. Adjust zoom, text size, spacing and colors, or pick a reading preset. Settings are remembered per site.",
   "action": {
     "default_popup": "popup.html",
     "default_title": "WebMakeover",
@@ -11,11 +12,10 @@
       "128": "images/icon128.png"
     }
   },
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage"],
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   }
 }
-

@@ -1,48 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>WebMakeover</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>WebMakeover</h1>
-  
-    <div class="option">
-      <label for="zoomLevel">Zoom Level:</label>
-      <input type="range" id="zoomLevel" min="0" max="200" value="100">
+  <main class="paper">
+    <div class="grain" aria-hidden="true"></div>
+    <span class="crop tl" aria-hidden="true"></span>
+    <span class="crop tr" aria-hidden="true"></span>
+
+    <header class="masthead">
+      <div class="wordmark">
+        <h1>Web<em>makeover</em></h1>
+        <p class="kicker">The&nbsp;reading&nbsp;studio · Nº&nbsp;1</p>
+      </div>
+      <span class="seal">Aa</span>
+    </header>
+
+    <div id="unsupported" class="notice" hidden>
+      This page is protected by the browser and can't be restyled.
     </div>
-  
-    <div class="option">
-      <label for="fontSize">Font Size:</label>
-      <input type="range" id="fontSize" min="8" max="32" value="16">
-    </div>
-  
-    <div class="option">
-      <label for="spacing">Line Spacing:</label>
-      <input type="range" id="spacing" min="0" max="200" value="100">
-    </div>
-  
-    <hr>
-  
-    <div class="option">
-      <label for="backgroundColor">Background Color:</label><br>
-      <input type="color" id="backgroundColor">
-    </div>
-  
-    <div class="option">
-      <label for="fontColor">Text Color:</label><br> 
-      <input type="color" id="fontColor">
-    </div>
-  
-    <hr>
-  
-    <div class="container">
-      <button id="reset">Reset</button>
-    </div>
-  
-    <script src="popup.js"></script>
-  </div>
+
+    <!-- Hero: a live type specimen that previews the makeover -->
+    <figure class="specimen">
+      <div class="sheet" id="sheet">
+        <p class="byline">The Studio Reader</p>
+        <p class="body"><span class="dropcap">R</span>eading should feel effortless.
+        Reshape the size, spacing and color of any page until the words settle
+        and the noise fades into the margins.</p>
+      </div>
+      <figcaption>Live preview — updates as you tune</figcaption>
+    </figure>
+
+    <nav class="presets" aria-label="Reading presets">
+      <button class="stamp" data-preset="reading" type="button" aria-pressed="false"><b>Reading</b><i>warm</i></button>
+      <button class="stamp" data-preset="dark" type="button" aria-pressed="false"><b>Dark</b><i>low light</i></button>
+      <button class="stamp" data-preset="sepia" type="button" aria-pressed="false"><b>Sepia</b><i>paper</i></button>
+      <button class="stamp" data-preset="contrast" type="button" aria-pressed="false"><b>High</b><i>contrast</i></button>
+    </nav>
+
+    <section class="controls">
+      <div class="control">
+        <div class="row"><label for="zoom">Zoom</label><output id="zoomOut">100%</output></div>
+        <input type="range" id="zoom" min="50" max="200" step="5" value="100">
+      </div>
+      <div class="control">
+        <div class="row"><label for="fontScale">Text size</label><output id="fontScaleOut">100%</output></div>
+        <input type="range" id="fontScale" min="70" max="200" step="5" value="100">
+      </div>
+      <div class="control">
+        <div class="row"><label for="spacing">Line spacing</label><output id="spacingOut">Normal</output></div>
+        <input type="range" id="spacing" min="100" max="300" step="10" value="100">
+      </div>
+    </section>
+
+    <section class="colors">
+      <div class="swatch">
+        <label for="bgColor">Paper</label>
+        <div class="pick">
+          <input type="color" id="bgColor" value="#ffffff">
+          <button class="clear" id="bgClear" type="button" title="Clear background">clear</button>
+        </div>
+      </div>
+      <div class="swatch">
+        <label for="textColor">Ink</label>
+        <div class="pick">
+          <input type="color" id="textColor" value="#000000">
+          <button class="clear" id="textClear" type="button" title="Clear ink">clear</button>
+        </div>
+      </div>
+    </section>
+
+    <button class="restore" id="reset" type="button">
+      <span class="glyph" aria-hidden="true">↺</span> Restore original page
+    </button>
+  </main>
+
+  <script src="popup.js"></script>
 </body>
 </html>
-
