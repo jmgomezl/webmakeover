@@ -130,7 +130,7 @@ function syncControls() {
   el.textColor.style.opacity = settings.textColor ? '1' : '0.45';
 
   el.presets.forEach(btn =>
-    btn.classList.toggle('active', btn.dataset.preset === settings.preset)
+    btn.setAttribute('aria-pressed', btn.dataset.preset === settings.preset ? 'true' : 'false')
   );
 
   renderPreview();
@@ -146,9 +146,12 @@ function paintSlider(input) {
 // Morph the live specimen to match the current settings.
 function renderPreview() {
   if (!el.sheet) return;
+  const body = el.sheet.querySelector('.body');
   const scale = (settings.fontScale / 100) * (settings.zoom / 100);
-  el.sheet.style.fontSize = (15 * scale).toFixed(1) + 'px';
-  el.sheet.style.lineHeight = (settings.spacing / 100).toFixed(2);
+  if (body) {
+    body.style.fontSize = (16 * scale).toFixed(1) + 'px';
+    body.style.lineHeight = (settings.spacing / 100).toFixed(2);
+  }
   el.sheet.style.background = settings.bgColor || 'var(--sheet)';
   el.sheet.style.color = settings.textColor || 'var(--ink)';
 }
