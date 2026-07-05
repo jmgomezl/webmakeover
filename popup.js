@@ -90,9 +90,17 @@ function wireEvents() {
 function onControl(key, value) {
   settings[key] = value;
   settings.preset = null; // manual tweak leaves the preset state
-  syncControls();
+  syncControls();         // preview + saved state update instantly
   persist();
-  apply();
+  scheduleApply();        // page injection is debounced while dragging
+}
+
+// Coalesce rapid slider input into one page update (~90ms after the last move)
+// so we don't re-scan the whole DOM on every pixel of drag.
+let applyTimer = null;
+function scheduleApply() {
+  clearTimeout(applyTimer);
+  applyTimer = setTimeout(apply, 90);
 }
 
 function applyPreset(name) {
